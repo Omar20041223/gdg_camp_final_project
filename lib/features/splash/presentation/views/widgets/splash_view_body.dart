@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
 import 'package:gdg_camp_final_project/core/utils/app_images.dart';
+
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
 
@@ -45,7 +46,18 @@ class SplashViewBody extends StatelessWidget {
             ),
           ),
         ),
-        Center(child: Image.asset(AppImages.logoImage,width: 285.w,height: 100.h,fit: BoxFit.fill,)),
+        BounceInDown(
+          duration: Duration(seconds: 2),
+          from: 200,
+          child: Center(
+            child: Image.asset(
+              AppImages.logoImage,
+              width: 285.w,
+              height: 100.h,
+              fit: BoxFit.fill,
+            ),
+          ),
+        ),
         Positioned(
           bottom: -80,
           left: -160.r,
@@ -79,7 +91,6 @@ class SplashViewBody extends StatelessWidget {
             ),
           ),
         ),
-
       ],
     );
   }
