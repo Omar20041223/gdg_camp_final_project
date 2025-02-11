@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      GoRouter.of(context).pushNamed(AppRouter.kOnboardingView);
+      GoRouter.of(context).push(AppRouter.kOnboardingView);
     });
   }
 

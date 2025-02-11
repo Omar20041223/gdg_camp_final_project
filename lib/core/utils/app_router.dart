@@ -11,7 +11,6 @@ abstract class AppRouter {
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashView()),
       GoRoute(path: '/onboardingView', builder: (context, state) => const OnboardingView()),
-
     ],
   );
 }
