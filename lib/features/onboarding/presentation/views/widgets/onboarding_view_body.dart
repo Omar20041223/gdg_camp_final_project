@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
+import 'package:gdg_camp_final_project/core/utils/app_router.dart';
 import 'package:gdg_camp_final_project/core/utils/app_styles.dart';
 import 'package:gdg_camp_final_project/core/widgets/custom_button.dart';
 import 'package:gdg_camp_final_project/features/onboarding/presentation/views/widgets/onboarding_page_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -79,6 +81,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                             text: "REGISTER",
                             height: 48.h,
                             shadow: true,
+                            onPressed: () {
+                              GoRouter.of(context).push(AppRouter.kRegisterView);
+                            },
                           ),
                           24.verticalSpace,
                           CustomButton(
