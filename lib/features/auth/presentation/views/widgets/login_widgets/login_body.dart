@@ -24,7 +24,9 @@ class LoginBody extends StatelessWidget {
             17.verticalSpace,
             LoginTextFields(),
             24.verticalSpace,
-            CustomButton(text: "Login"),
+            CustomButton(text: "Login",onPressed: (){
+              GoRouter.of(context).push(AppRouter.kHomeView);
+            },),
             48.verticalSpace,
             Center(child: Text("Or Login With")),
             Row(

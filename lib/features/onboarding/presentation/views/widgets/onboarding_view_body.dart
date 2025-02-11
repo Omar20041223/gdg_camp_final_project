@@ -23,19 +23,24 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              "SKIP",
-              style: AppStyles.textStyle14W500CustomGrey,
-            ),
-            Icon(
-              Icons.double_arrow_sharp,
-              size: 12.sp,
-            ),
-            16.horizontalSpace,
-          ],
+        InkWell(
+          onTap: (){
+            GoRouter.of(context).push(AppRouter.kLoginView);
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                "SKIP",
+                style: AppStyles.textStyle14W500CustomGrey,
+              ),
+              Icon(
+                Icons.double_arrow_sharp,
+                size: 12.sp,
+              ),
+              16.horizontalSpace,
+            ],
+          ),
         ),
         70.verticalSpace,
         Expanded(
