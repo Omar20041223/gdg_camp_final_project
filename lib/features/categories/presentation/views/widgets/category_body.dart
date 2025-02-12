@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/features/categories/presentation/views/widgets/category_app_bar.dart';
-import 'package:gdg_camp_final_project/features/categories/presentation/views/widgets/category_item.dart';
 import 'package:gdg_camp_final_project/features/categories/presentation/views/widgets/category_list_view.dart';
 class CategoryBody extends StatelessWidget {
   const CategoryBody({super.key, required this.title});

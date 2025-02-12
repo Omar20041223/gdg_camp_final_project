@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/widgets/commom_image.dart';
 import 'package:gdg_camp_final_project/core/widgets/move_to_cart_button.dart';
+import 'package:gdg_camp_final_project/features/home/data/models/products_model.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class HomeViewCommonItem extends StatelessWidget {
-  const HomeViewCommonItem({super.key});
-
+  const HomeViewCommonItem({super.key, required this.product});
+  final ProductsModel product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,15 +25,15 @@ class HomeViewCommonItem extends StatelessWidget {
           ]),
       child: Column(
         children: [
-          const CommonImage(),
+          CommonImage(image: product.img,),
           2.verticalSpace,
           Text.rich(
             TextSpan(
-                text: "Product     ",
+                text: "${product.name}    ",
                 style: AppStyles.textStyle16W500Black,
                 children: [
                   TextSpan(
-                      text: "\$500",
+                      text: "\$${product.price}",
                       style: TextStyle(
                           color: const Color(0xffDB4444),
                           fontWeight: FontWeight.w700,

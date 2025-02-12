@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_router.dart';
+import 'package:gdg_camp_final_project/features/home/data/models/products_model.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/app_styles.dart';
 import 'home_view_common_item.dart';
 
 class HomeViewCommonListView extends StatelessWidget {
-  const HomeViewCommonListView({super.key, required this.title});
+  const HomeViewCommonListView({super.key, required this.title, required this.products});
 
   final String title;
-
+  final List<ProductsModel> products;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,9 +42,9 @@ class HomeViewCommonListView extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
-                return const HomeViewCommonItem();
+                return  HomeViewCommonItem(product: products[index],);
               },
             ),
           ),

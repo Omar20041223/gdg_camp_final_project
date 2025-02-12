@@ -12,6 +12,7 @@ class ApiEndpoints {
 
   // home
   static const String getCategories = '${baseUrl}categories/';
+  static const String getProducts = '${baseUrl}products/';
 
   //-----------------------------------------------------
 }

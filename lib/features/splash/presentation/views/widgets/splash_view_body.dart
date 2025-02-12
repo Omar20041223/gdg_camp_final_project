@@ -15,7 +15,7 @@ class SplashViewBody extends StatelessWidget {
           top: -50,
           right: -128.r,
           child: FadeInLeft(
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: CircleAvatar(
               radius: 128.r,
               backgroundColor: AppColors.primaryColor.withValues(alpha: .67),
@@ -27,7 +27,7 @@ class SplashViewBody extends StatelessWidget {
           left: -21.5,
           child: ShakeX(
             from: 50,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: CircleAvatar(
               radius: 21.5.r,
               backgroundColor: AppColors.primaryColor.withValues(alpha: .67),
@@ -39,7 +39,7 @@ class SplashViewBody extends StatelessWidget {
           left: 30,
           child: ShakeY(
             from: 50,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: CircleAvatar(
               radius: 29.r,
               backgroundColor: AppColors.primaryColor.withValues(alpha: .2),
@@ -47,7 +47,7 @@ class SplashViewBody extends StatelessWidget {
           ),
         ),
         BounceInDown(
-          duration: Duration(seconds: 2),
+          duration: const Duration(seconds: 2),
           from: 200,
           child: Center(
             child: Image.asset(
@@ -62,7 +62,7 @@ class SplashViewBody extends StatelessWidget {
           bottom: -80,
           left: -160.r,
           child: FadeInRight(
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: CircleAvatar(
               radius: 160.r,
               backgroundColor: AppColors.primaryColor.withValues(alpha: .3),
@@ -73,7 +73,7 @@ class SplashViewBody extends StatelessWidget {
           bottom: 50,
           right: 70,
           child: BounceInDown(
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: CircleAvatar(
               radius: 21.5.r,
               backgroundColor: AppColors.primaryColor.withValues(alpha: .67),
@@ -84,7 +84,7 @@ class SplashViewBody extends StatelessWidget {
           bottom: 120,
           right: 0,
           child: Jello(
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             child: CircleAvatar(
               radius: 29.r,
               backgroundColor: AppColors.primaryColor.withValues(alpha: .2),

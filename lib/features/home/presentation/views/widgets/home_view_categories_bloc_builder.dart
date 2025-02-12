@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/manager/get_categories/get_categories_cubit.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/home_view_categories.dart';
 
@@ -17,7 +18,7 @@ class HomeViewCategoriesBlocBuilder extends StatelessWidget {
           } else if (state is GetCategoriesFailure) {
             return CustomFailureWidget(errMessage: state.errMessage);
           } else {
-            return const CustomLoadingIndicator();
+            return SizedBox(height: 150.h,child: const CustomLoadingIndicator());
           }
         });
   }

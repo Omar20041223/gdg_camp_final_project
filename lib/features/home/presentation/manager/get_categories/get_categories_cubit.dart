@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gdg_camp_final_project/features/home/data/models/categories_model.dart';
 import 'package:gdg_camp_final_project/features/home/data/repos/home_repo/home_repo.dart';
-import 'package:meta/meta.dart';
 
 part 'get_categories_state.dart';
 

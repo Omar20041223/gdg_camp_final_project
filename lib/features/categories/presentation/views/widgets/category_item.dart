@@ -27,7 +27,7 @@ class CategoryItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const CommonImage(),
+          const CommonImage(image: '',),
           27.horizontalSpace,
           Column(
             mainAxisAlignment: MainAxisAlignment.center,

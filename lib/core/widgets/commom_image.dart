@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
+import '../networking/api_endpoints.dart';
 
 class CommonImage extends StatefulWidget {
-  const CommonImage({super.key});
+  const CommonImage({super.key, required this.image});
+
+  final String image;
 
   @override
   State<CommonImage> createState() => _CommonImageState();
@@ -11,6 +14,7 @@ class CommonImage extends StatefulWidget {
 
 class _CommonImageState extends State<CommonImage> {
   bool isFavourite = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,8 +23,8 @@ class _CommonImageState extends State<CommonImage> {
       decoration: BoxDecoration(
         color: const Color(0xff480D0D),
         borderRadius: BorderRadius.circular(4.5.r),
-        image: const DecorationImage(
-            image: AssetImage("assets/images/offers_image.png"),
+        image: DecorationImage(
+            image: NetworkImage("${ApiEndpoints.urlForImages}${widget.image}"),
             fit: BoxFit.fill),
       ),
       child: Padding(
@@ -40,7 +44,8 @@ class _CommonImageState extends State<CommonImage> {
                   color: Colors.white, shape: BoxShape.circle),
               child: Icon(
                 isFavourite ? Icons.favorite : Icons.favorite_outline_rounded,
-                color: isFavourite ? AppColors.customRed : AppColors.primaryColor,
+                color:
+                    isFavourite ? AppColors.customRed : AppColors.primaryColor,
                 size: 15.sp,
               ),
             ),

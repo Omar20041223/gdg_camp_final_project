@@ -44,7 +44,7 @@ class AuthRepoImpl extends AuthRepo {
       //   );
       //   DioFactory.setTokenIntoHeaderAfterLogin(loginResponse.tokens.access);
       // }
-      return Right(unit);
+      return const Right(unit);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/features/home/data/models/products_model.dart';
 
 import '../home_view_common_item.dart';
 
@@ -17,7 +18,7 @@ class SeeAllGridView extends StatelessWidget {
       ),
       itemCount: 20,
       itemBuilder: (context, index) {
-        return const HomeViewCommonItem();
+        return  HomeViewCommonItem(product: ProductsModel(id: 1, name: "name", description: "description", price: "price", categoryId: 1, img: "img", createdAt: DateTime(1), updatedAt: DateTime(1)),);
       },
     );
   }

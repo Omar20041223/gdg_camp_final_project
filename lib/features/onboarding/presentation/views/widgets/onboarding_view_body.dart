@@ -65,7 +65,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                   axisDirection: Axis.horizontal,
                   effect: WormEffect(
                     activeDotColor: AppColors.primaryColor,
-                    dotColor: Color(0xffE8E3E3),
+                    dotColor: const Color(0xffE8E3E3),
                     dotHeight: 9.r,
                     dotWidth: 9.r,
                   ),
@@ -77,7 +77,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         height: 48.h,
                         shadow: true,
                         onPressed: () {
-                          _pageController.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeOut);
+                          _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
                         },
                       )
                     : Column(
