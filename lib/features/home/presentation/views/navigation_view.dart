@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:gdg_camp_final_project/features/home/presentation/views/home_view.dart';
+import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/custom_bottom_nav_bar.dart';
+
+import '../../../auth/presentation/views/login_view.dart';
+import '../../../auth/presentation/views/register_view.dart';
+import '../../../onboarding/presentation/views/onboarding_view.dart';
+class NavigationView extends StatefulWidget {
+  const NavigationView({super.key});
+
+  @override
+  State<NavigationView> createState() => _NavigationViewState();
+}
+
+class _NavigationViewState extends State<NavigationView> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+  List<Widget> views = [const HomeView(),const LoginView(),const RegisterView(),const OnboardingView()];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: views[_selectedIndex],
+      bottomNavigationBar: CustomBottomNavBar(selectedIndex: _selectedIndex, onItemTapped: _onItemTapped),
+    );
+  }
+}
