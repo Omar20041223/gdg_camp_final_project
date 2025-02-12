@@ -30,10 +30,10 @@ class CustomBottomNavBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildNavItem(Icons.home, 0, isSelected: selectedIndex == 0),
-                _buildNavItem(Icons.favorite_outline, 1, isSelected: selectedIndex == 1),
-                _buildNavItem(Icons.notifications_none, 2, isSelected: selectedIndex == 2),
-                _buildNavItem(Icons.person_outline, 3, isSelected: selectedIndex == 3),
+                _buildNavItem(Icons.home, 0,"Home", isSelected: selectedIndex == 0),
+                _buildNavItem(Icons.favorite_outline, 1,"Wishlist", isSelected: selectedIndex == 1),
+                _buildNavItem(Icons.notifications_none, 2,"Notifications", isSelected: selectedIndex == 2),
+                _buildNavItem(Icons.person_outline, 3,"Profile", isSelected: selectedIndex == 3),
               ],
             ),
           ),
@@ -58,7 +58,7 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 
-  Widget _buildNavItem(IconData icon, int index, {bool isSelected = false}) {
+  Widget _buildNavItem(IconData icon, int index,String label, {bool isSelected = false}) {
     return GestureDetector(
       onTap: () => onItemTapped(index),
       child: Column(
@@ -66,7 +66,7 @@ class CustomBottomNavBar extends StatelessWidget {
         children: [
           Icon(icon, color: isSelected ? AppColors.primaryColor : Colors.white, size: 25.sp),
           SizedBox(height: 5.h),
-          Text("Label", style: TextStyle(color: Colors.white, fontSize: 12.sp)),
+          Text(label, style: TextStyle(color: Colors.white, fontSize: 12.sp)),
         ],
       ),
     );

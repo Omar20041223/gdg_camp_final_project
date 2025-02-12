@@ -7,21 +7,10 @@ class ApiEndpoints {
 
   static const String login = '${baseUrl}login/';
 
-
-  static String validateEmail({required String otp}) {
-    return 'validation/$otp';
-  }
-
-  static String forgetPassword({required String email}) {
-    return 'forgetPassword/$email';
-  }
-
   //--------------------------------------------------
 
   // home
-  static String getAllActivePrograms({required int flag}) {
-    return 'onlyCurrent/$flag';
-  }
+  static const String getCategories = '${baseUrl}categories/';
 
   //-----------------------------------------------------
 }

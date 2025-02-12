@@ -6,8 +6,8 @@ class ApiService {
   ApiService(this.dio);
 
   Future<dynamic> get(
-      {required String endpoint, Map<String, dynamic>? queryParameters}) async {
-    final response = await dio.get(endpoint, queryParameters: queryParameters);
+      {required String endPoint, Map<String, dynamic>? queryParameters}) async {
+    final response = await dio.get(endPoint, queryParameters: queryParameters);
     return response.data;
   }
 
