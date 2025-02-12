@@ -17,10 +17,10 @@ class HomeViewCommonListView extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppStyles.textStyle16W500CustomGrey,
+                style: AppStyles.textStyle20W500Black,
               ),
-              Spacer(),
-              Text("See All",style: AppStyles.textStyle16W500CustomGrey),
+              const Spacer(),
+              Text("See All",style: AppStyles.textStyle16W400CustomGrey),
               24.horizontalSpace
             ],
           ),
@@ -28,11 +28,11 @@ class HomeViewCommonListView extends StatelessWidget {
           SizedBox(
             height: 235.h,
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
-                return HomeViewCommonItem();
+                return const HomeViewCommonItem();
               },
             ),
           ),

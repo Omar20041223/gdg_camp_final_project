@@ -13,17 +13,17 @@ class HomeViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          HomeViewAppBar(),
+          const HomeViewAppBar(),
           23.5.verticalSpace,
-          HomeViewCarouselSlider(),
+          const HomeViewCarouselSlider(),
           32.verticalSpace,
-          HomeViewCategories(),
+          const HomeViewCategories(),
           32.verticalSpace,
-          HomeViewCommonListView(title: "Offers 🔥",),
+          const HomeViewCommonListView(title: "Offers 🔥",),
           32.verticalSpace,
-          HomeViewCommonListView(title: 'Recommended',),
+          const HomeViewCommonListView(title: 'Recommended',),
           32.verticalSpace,
-          HomeViewCommonListView(title: 'Our products',),
+          const HomeViewCommonListView(title: 'Our products',),
           32.verticalSpace,
         ],
       ),

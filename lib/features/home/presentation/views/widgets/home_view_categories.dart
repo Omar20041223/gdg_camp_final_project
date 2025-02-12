@@ -22,11 +22,11 @@ class HomeViewCategories extends StatelessWidget {
           SizedBox(
             height: 117.5,
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
-                return HomeViewCategoriesItem();
+                return const HomeViewCategoriesItem();
               },
             ),
           ),

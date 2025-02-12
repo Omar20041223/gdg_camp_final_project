@@ -28,11 +28,17 @@ class LoginBody extends StatelessWidget {
               GoRouter.of(context).push(AppRouter.kHomeView);
             },),
             48.verticalSpace,
-            const Center(child: Text("Or Login With")),
-            const Row(
+            Center(child: Text("Or Login With",style: AppStyles.textStyle14W400CustomBlack,)),
+             12.5.verticalSpace,
+             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // todo login icon
+                Image.asset("assets/images/apple_logo.png",width: 30.w,height: 30.h,),
+                16.horizontalSpace,
+                Image.asset("assets/images/facebook_logo.png",width: 30.w,height: 30.h,),
+                16.horizontalSpace,
+                Image.asset("assets/images/google_logo.png",width: 30.w,height: 30.h,),
               ],
             ),
             30.verticalSpace,
@@ -49,7 +55,7 @@ class LoginBody extends StatelessWidget {
                         GoRouter.of(context).push(AppRouter.kRegisterView);
                       },
                       text: "Sign up",
-                      style: AppStyles.textStyle14W400CustomBlack.copyWith(color: Colors.blue),
+                      style: AppStyles.textStyle14W500PrimaryColor,
                     ),
                   ],
                 ),

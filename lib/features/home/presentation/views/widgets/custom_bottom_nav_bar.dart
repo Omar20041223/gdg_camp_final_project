@@ -19,42 +19,39 @@ class CustomBottomNavBar extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         ClipPath(
-          clipper: BottomNavClipper(),
+          clipper: BottomNavClipper(selectedIndex),
           child: Container(
-            margin: EdgeInsets.only(right: 6),
+            // margin: EdgeInsets.only(right: 6),
             decoration: BoxDecoration(
               color: Colors.black,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(50.r))
+              borderRadius: BorderRadius.vertical(top: Radius.circular(5.r)),
             ),
             height: 80,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                70.horizontalSpace,
-                _buildNavItem(Icons.favorite_outline, 1,isSelected: selectedIndex == 1 ? true : false),
-                _buildNavItem(Icons.notifications_none, 2,isSelected: selectedIndex == 2 ? true : false),
-                _buildNavItem(Icons.person_outline, 3,isSelected: selectedIndex == 3 ? true : false),
+                _buildNavItem(Icons.home, 0, isSelected: selectedIndex == 0),
+                _buildNavItem(Icons.favorite_outline, 1, isSelected: selectedIndex == 1),
+                _buildNavItem(Icons.notifications_none, 2, isSelected: selectedIndex == 2),
+                _buildNavItem(Icons.person_outline, 3, isSelected: selectedIndex == 3),
               ],
             ),
           ),
         ),
-        // Home Button Positioned Inside the Cutout
         Positioned(
-          top: -20,
-          left: 50, // Adjusted for better alignment
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: Colors.black,
-                child: IconButton(
-                  icon: Icon(Icons.home, color: selectedIndex == 0 ? AppColors.primaryColor : Colors.white, size: 30),
-                  onPressed: () => onItemTapped(0),
-                ),
+          top: -30.h,
+          left: _getHomeButtonPosition(selectedIndex),
+          child: CircleAvatar(
+            radius: 28,
+            backgroundColor: Colors.black,
+            child: IconButton(
+              icon: Icon(
+                _getIconForIndex(selectedIndex),
+                color: Colors.white,
+                size: 30,
               ),
-              10.verticalSpace,
-              Text("data",style: TextStyle(color: Colors.white),)
-            ],
+              onPressed: () => onItemTapped(selectedIndex),
+            ),
           ),
         ),
       ],
@@ -62,76 +59,97 @@ class CustomBottomNavBar extends StatelessWidget {
   }
 
   Widget _buildNavItem(IconData icon, int index, {bool isSelected = false}) {
-    return SizedBox(
-      width: 60.w, // Ensures consistent width
+    return GestureDetector(
+      onTap: () => onItemTapped(index),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector(
-            onTap: () => onItemTapped(index),
-            child: Icon(
-              icon,
-              color: isSelected ? AppColors.primaryColor : Colors.white,
-              size: 25.sp,
-            ),
-          ),
-          SizedBox(height: 10.h), // Adjust spacing
-          Text(
-            "Label", // Replace with actual text
-            style: TextStyle(color: Colors.white, fontSize: 12.sp),
-            textAlign: TextAlign.center,
-          ),
+          Icon(icon, color: isSelected ? AppColors.primaryColor : Colors.white, size: 25.sp),
+          SizedBox(height: 5.h),
+          Text("Label", style: TextStyle(color: Colors.white, fontSize: 12.sp)),
         ],
       ),
     );
   }
+
+  double _getHomeButtonPosition(int selectedIndex) {
+    switch (selectedIndex) {
+      case 0:
+        return 20.w;
+      case 1:
+        return 130.w;
+      case 2:
+        return 235.w;
+      case 3:
+        return 340.w;
+      default:
+        return 30.w;
+    }
+  }
+
+  IconData _getIconForIndex(int index) {
+    switch (index) {
+      case 0:
+        return Icons.home;
+      case 1:
+        return Icons.favorite;
+      case 2:
+        return Icons.notifications;
+      case 3:
+        return Icons.person;
+      default:
+        return Icons.home;
+    }
+  }
 }
 
+
 class BottomNavClipper extends CustomClipper<Path> {
+  final int selectedIndex;
+
+  BottomNavClipper(this.selectedIndex);
+
   @override
   Path getClip(Size size) {
     Path path = Path();
-    double homeButtonRadius = 28.0; // Radius of the home button cutout
-    double cutoutCenterX = size.width * 0.10; // X position for the home button cutout
-    double curveHeight = 35.0; // Height of the curve under the home button
+    double height = size.height;
+    double width = size.width;
+    double arcRadius = 30.0;
+    double circleRadius = 28.0;
+    double cutoutCenterX = _getCutoutPosition(width, selectedIndex);
 
-    // Start from the top-left corner
-    path.lineTo(cutoutCenterX - 5, 0);
+    path.lineTo(cutoutCenterX - arcRadius * 1.7, 0);
 
-    // Create the first upward curve for the home button cutout
+    // Start of the cutout
     path.quadraticBezierTo(
-      cutoutCenterX - 10, curveHeight - 25, // Control point (smooth curve)
-      cutoutCenterX + 20, curveHeight, // End point of the first curve
+      cutoutCenterX - arcRadius, arcRadius - 10,
+      cutoutCenterX - 10, arcRadius,
     );
 
-    // Draw a circular arc for the home button cutout
+    // Arc for the floating button
     path.arcToPoint(
-      Offset(cutoutCenterX + 60, curveHeight), // End of the arc
-      radius: Radius.circular(homeButtonRadius + 10), // Arc radius
-      clockwise: false, // Arc direction (counter-clockwise)
+      Offset(cutoutCenterX + 10, arcRadius),
+      radius: Radius.circular(circleRadius),
+      clockwise: false,
     );
 
-    // Create the second downward curve back to the main navbar
+    // End of the cutout
     path.quadraticBezierTo(
-      cutoutCenterX + 65, curveHeight, // Control point
-      cutoutCenterX + 85, 2, // End point, back to the top
+      cutoutCenterX + arcRadius, arcRadius - 10,
+      cutoutCenterX + arcRadius * 1.7, 0,
     );
-    
 
-    // Draw a straight line to the top-right corner
-    path.lineTo(size.width, 0);
-
-    // Draw a straight line down to the bottom-right corner
-    path.lineTo(size.width, size.height);
-
-    // Draw a straight line to the bottom-left corner
-    path.lineTo(0, size.height);
-
-    // Close the path to complete the shape
+    path.lineTo(width, 0);
+    path.lineTo(width, height);
+    path.lineTo(0, height);
     path.close();
 
     return path;
+  }
+
+  double _getCutoutPosition(double width, int index) {
+    double sectionWidth = width / 4; // Divide equally for 4 icons
+    return (sectionWidth * index) + (sectionWidth / 2) - 3; // Adjust offset
   }
 
   @override

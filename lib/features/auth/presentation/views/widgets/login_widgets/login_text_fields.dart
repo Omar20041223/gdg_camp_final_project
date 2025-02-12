@@ -36,12 +36,12 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
           suffixIcon: IconButton(onPressed: () {
             setState(() {
               obscureText =! obscureText;
-              print(obscureText);
             });
           }, icon: Icon(obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined,)),
         ),
         16.verticalSpace,
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Checkbox(value: false, onChanged: (isTrue) {}),
             Text(
@@ -51,7 +51,7 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
             const Spacer(),
             Text(
               "forget Password",
-              style: AppStyles.textStyle18W400Black,
+              style: AppStyles.textStyle14W500PrimaryColor,
             )
           ],
         )

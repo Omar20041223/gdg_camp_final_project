@@ -38,11 +38,12 @@ class RegisterBody extends StatelessWidget {
                       GoRouter.of(context).push(AppRouter.kLoginView);
                     },
                     text: "Log in",
-                    style: AppStyles.textStyle14W400CustomBlack.copyWith(color: Colors.blue),
+                    style: AppStyles.textStyle14W500PrimaryColor,
                   ),
                 ],
               ),
             ),
+            50.verticalSpace,
           ],
         ),
       ),

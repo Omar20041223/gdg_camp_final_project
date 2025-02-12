@@ -21,7 +21,7 @@ class AuthFooter extends StatelessWidget {
             16.horizontalSpace,
             Text(
               "or login with",
-              // style: AppStyles.regular14,
+              style: AppStyles.textStyle14W400CustomBlack,
             ),
             16.horizontalSpace,
             Expanded(
@@ -33,24 +33,14 @@ class AuthFooter extends StatelessWidget {
           ],
         ),
         24.verticalSpace,
-        Container(
-          height: 55.h,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.r),
-            border: Border.all(
-              width: 1.5,
-              color: Colors.black.withAlpha(76),
-            )
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(Icons.g_mobiledata_sharp),
-              4.horizontalSpace,
-              // Text("Sing up with Google",style: AppStyles.regular18,)
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset("assets/images/google_logo.png",width: 30.w,height: 30.h,),
+            10.horizontalSpace,
+            Text("Sing up with Google",style: AppStyles.textStyle16W500CustomGrey,)
+          ],
         )
       ],
     );

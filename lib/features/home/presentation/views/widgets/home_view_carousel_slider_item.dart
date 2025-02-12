@@ -13,15 +13,15 @@ class HomeViewCarouselSliderItem extends StatelessWidget {
           width: 375.5.w,
           decoration: BoxDecoration(
               boxShadow: [
-                BoxShadow(
-                  color: const Color(0x1A000000), // #0000001A in Flutter
-                  offset: const Offset(0, 9.69), // x: 0px, y: 9.69px
+                const BoxShadow(
+                  color: Color(0x1A000000), // #0000001A in Flutter
+                  offset: Offset(0, 9.69), // x: 0px, y: 9.69px
                   blurRadius: 19.38, // 19.38px blur radius
                   spreadRadius: 0, // No spread
                 ),
               ],
             borderRadius: BorderRadius.circular(11.r),
-            image: DecorationImage(image: AssetImage("assets/images/advertisement.png"),fit: BoxFit.fill)
+            image: const DecorationImage(image: AssetImage("assets/images/advertisement.png"),fit: BoxFit.fill)
           ),
         ),
       ],

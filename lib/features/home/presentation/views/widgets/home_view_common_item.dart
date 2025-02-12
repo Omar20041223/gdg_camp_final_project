@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
@@ -10,16 +11,16 @@ class HomeViewCommonItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 185.w,
-      padding: EdgeInsets.all(11.w),
+      padding: EdgeInsets.all(12.w),
       margin: EdgeInsets.only(right: 16.w),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(9.r),
           boxShadow: [
             BoxShadow(
-                offset: Offset(0, 3.37),
+                offset: const Offset(0, 3.37),
                 blurRadius: 8.08,
-                color: Colors.black.withValues(alpha: 200))
+                color: const Color(0xff004365).withValues(alpha: .08))
           ]),
       child: Column(
         children: [
@@ -27,9 +28,9 @@ class HomeViewCommonItem extends StatelessWidget {
               width: 154.8.w,
               height: 123.84.h,
               decoration: BoxDecoration(
-                  color: Color(0xff480D0D),
+                  color: const Color(0xff480D0D),
                   borderRadius: BorderRadius.circular(4.5.r),
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage("assets/images/offers_image.png"),
                       fit: BoxFit.fill)),
               child: Padding(
@@ -39,7 +40,7 @@ class HomeViewCommonItem extends StatelessWidget {
                   child: Container(
                     width: 22.r,
                     height: 22.r,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white, shape: BoxShape.circle),
                     child: Icon(
                       Icons.favorite_outline_rounded,
@@ -57,17 +58,13 @@ class HomeViewCommonItem extends StatelessWidget {
                   TextSpan(
                       text: "\$500",
                       style: TextStyle(
-                          color: Color(0xffDB4444),
+                          color: const Color(0xffDB4444),
                           fontWeight: FontWeight.w700,
                           fontSize: 14.sp))
                 ]),
           ),
-          Spacer(),
-          CustomButton(text: "Add To Cart",textStyle: AppStyles.textStyle14W400CustomBlack.copyWith(
-            fontWeight: FontWeight.w700,
-            fontSize: 12.sp,
-            color: Colors.white
-          ),),
+          10.verticalSpace,
+          CustomButton(text: "Move to cart",backgroundColor: Colors.white,border: Border.all(color: AppColors.primaryColor,width: 1),textStyle: AppStyles.textStyle12W400PrimaryColor,borderRadius: BorderRadius.circular(20.r),height: 40.h,width: 132.w,),
         ],
       ),
     );
