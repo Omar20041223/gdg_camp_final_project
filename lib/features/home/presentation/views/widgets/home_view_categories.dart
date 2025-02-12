@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/features/home/data/models/categories_model.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import 'home_view_categories_item.dart';
 
 class HomeViewCategories extends StatelessWidget {
-  const HomeViewCategories({super.key});
-
+  const HomeViewCategories({super.key, required this.categories});
+  final List<CategoriesModel> categories;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,9 +25,9 @@ class HomeViewCategories extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: categories.length,
               itemBuilder: (BuildContext context, int index) {
-                return const HomeViewCategoriesItem();
+                return HomeViewCategoriesItem(category: categories[index],);
               },
             ),
           ),

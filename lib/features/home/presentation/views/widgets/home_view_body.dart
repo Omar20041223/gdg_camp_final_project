@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/home_view_categories_bloc_builder.dart';
 import 'home_view_app_bar.dart';
 import 'home_view_carousel_slider.dart';
 import 'home_view_categories.dart';
@@ -17,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
           23.5.verticalSpace,
           const HomeViewCarouselSlider(),
           32.verticalSpace,
-          const HomeViewCategories(),
+          const HomeViewCategoriesBlocBuilder(),
           32.verticalSpace,
           const HomeViewCommonListView(title: "Offers 🔥",),
           32.verticalSpace,

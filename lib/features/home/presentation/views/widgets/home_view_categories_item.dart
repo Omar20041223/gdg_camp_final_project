@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/core/networking/api_endpoints.dart';
 import 'package:gdg_camp_final_project/core/utils/app_router.dart';
+import 'package:gdg_camp_final_project/features/home/data/models/categories_model.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 class HomeViewCategoriesItem extends StatelessWidget {
-  const HomeViewCategoriesItem({super.key});
+  const HomeViewCategoriesItem({super.key, required this.category});
+  final CategoriesModel category;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
         GoRouter.of(context).push(AppRouter.kCategoryView,extra: {
-          "title" : "Clothes"
+          "title" : category.name
         });
       },
       child: Container(
@@ -34,9 +37,9 @@ class HomeViewCategoriesItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FittedBox(fit: BoxFit.scaleDown,child: Image.asset("assets/images/clothes.png",width: 45.w,height: 45.h,)),
+            FittedBox(fit: BoxFit.scaleDown,child: Image.network("${ApiEndpoints.urlForImages}${category.img}",width: 45.w,height: 45.h,fit: BoxFit.fill,)),
             6.verticalSpace,
-            Text("Clothes",style: AppStyles.textStyle18W400Black,)
+            Text(category.name,style: AppStyles.textStyle18W400Black,)
           ],
         ),
       ),
