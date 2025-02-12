@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
 
 class CommonImage extends StatefulWidget {
   const CommonImage({super.key});
@@ -39,6 +40,7 @@ class _CommonImageState extends State<CommonImage> {
                   color: Colors.white, shape: BoxShape.circle),
               child: Icon(
                 isFavourite ? Icons.favorite : Icons.favorite_outline_rounded,
+                color: isFavourite ? AppColors.customRed : AppColors.primaryColor,
                 size: 15.sp,
               ),
             ),

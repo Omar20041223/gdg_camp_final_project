@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/widgets/commom_image.dart';
 import 'package:gdg_camp_final_project/core/widgets/move_to_cart_button.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../../core/widgets/custom_button.dart';
 
 class HomeViewCommonItem extends StatelessWidget {
   const HomeViewCommonItem({super.key});
@@ -31,7 +29,7 @@ class HomeViewCommonItem extends StatelessWidget {
           Text.rich(
             TextSpan(
                 text: "Product     ",
-                style: AppStyles.textStyle16W500CustomGrey,
+                style: AppStyles.textStyle16W500Black,
                 children: [
                   TextSpan(
                       text: "\$500",
