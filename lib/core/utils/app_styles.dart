@@ -76,4 +76,19 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.primaryColor,
   );
+  static final TextStyle textStyle18W500Black = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+  static final TextStyle textStyle16W500Black = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: Colors.black,
+  );
+  static final TextStyle textStyle14W700CustomRed = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.customRed,
+  );
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/core/widgets/commom_image.dart';
+import 'package:gdg_camp_final_project/core/widgets/move_to_cart_button.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -24,31 +26,7 @@ class HomeViewCommonItem extends StatelessWidget {
           ]),
       child: Column(
         children: [
-          Container(
-              width: 154.8.w,
-              height: 123.84.h,
-              decoration: BoxDecoration(
-                  color: const Color(0xff480D0D),
-                  borderRadius: BorderRadius.circular(4.5.r),
-                  image: const DecorationImage(
-                      image: AssetImage("assets/images/offers_image.png"),
-                      fit: BoxFit.fill)),
-              child: Padding(
-                padding: EdgeInsets.only(top: 11.0.h, right: 10.5.w),
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    width: 22.r,
-                    height: 22.r,
-                    decoration: const BoxDecoration(
-                        color: Colors.white, shape: BoxShape.circle),
-                    child: Icon(
-                      Icons.favorite_outline_rounded,
-                      size: 15.sp,
-                    ),
-                  ),
-                ),
-              )),
+          const CommonImage(),
           2.verticalSpace,
           Text.rich(
             TextSpan(
@@ -64,7 +42,7 @@ class HomeViewCommonItem extends StatelessWidget {
                 ]),
           ),
           10.verticalSpace,
-          CustomButton(text: "Move to cart",backgroundColor: Colors.white,border: Border.all(color: AppColors.primaryColor,width: 1),textStyle: AppStyles.textStyle12W400PrimaryColor,borderRadius: BorderRadius.circular(20.r),height: 40.h,width: 132.w,),
+          const MoveToCartButton(),
         ],
       ),
     );

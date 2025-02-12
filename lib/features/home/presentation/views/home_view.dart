@@ -20,7 +20,7 @@ class _HomeViewState extends State<HomeView> {
       _selectedIndex = index;
     });
   }
-  List<Widget> views = [HomeViewBody(),LoginView(),RegisterView(),OnboardingView()];
+  List<Widget> views = [const HomeViewBody(),const LoginView(),const RegisterView(),const OnboardingView()];
 
   @override
   Widget build(BuildContext context) {
