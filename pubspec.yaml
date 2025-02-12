@@ -39,6 +39,11 @@ dependencies:
   animate_do: ^4.0.0
   smooth_page_indicator: ^1.2.0+3
   carousel_slider: ^5.0.0
+  dio: ^5.8.0+1
+  dartz: ^0.10.1
+  flutter_bloc: ^9.0.0
+  pretty_dio_logger: ^1.4.0
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

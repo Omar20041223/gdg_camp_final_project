@@ -20,16 +20,16 @@ class LoginBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             40.verticalSpace,
-            LoginHeader(),
+            const LoginHeader(),
             17.verticalSpace,
-            LoginTextFields(),
+            const LoginTextFields(),
             24.verticalSpace,
             CustomButton(text: "Login",onPressed: (){
               GoRouter.of(context).push(AppRouter.kHomeView);
             },),
             48.verticalSpace,
-            Center(child: Text("Or Login With")),
-            Row(
+            const Center(child: Text("Or Login With")),
+            const Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // todo login icon

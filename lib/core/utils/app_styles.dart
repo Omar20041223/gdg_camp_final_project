@@ -5,9 +5,9 @@ import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
 class AppStyles {
 
   /// on boarding ---------------------------
-  static final TextStyle textStyle20W700PrimaryColor = TextStyle(
+  static final TextStyle textStyle20W600PrimaryColor = TextStyle(
     fontSize: 20.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     color: AppColors.primaryColor,
   );
   static final TextStyle textStyle16W400CustomGrey = TextStyle(
@@ -20,9 +20,9 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.customGrey,
   );
-  static final TextStyle textStyle20W500White = TextStyle(
+  static final TextStyle textStyle20W400White = TextStyle(
     fontSize: 20.sp,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
     color: Colors.white,
   );
   /// --------------------------------------------
@@ -51,6 +51,11 @@ class AppStyles {
   static final TextStyle textStyle16W500CustomGrey = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
-    color: Color(0xff7C838A),
+    color: const Color(0xff7C838A),
+  );
+  static final TextStyle textStyle14W500PrimaryColor = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primaryColor,
   );
 }

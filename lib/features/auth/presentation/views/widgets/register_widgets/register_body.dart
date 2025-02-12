@@ -2,12 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_router.dart';
+import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/register_widgets/register_bloc_listener.dart';
 import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/register_widgets/register_header.dart';
-import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/register_widgets/register_text_fields.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/utils/app_styles.dart';
-import '../../../../../../core/widgets/custom_button.dart';
 import '../auth_footer.dart';
 
 class RegisterBody extends StatelessWidget {
@@ -23,15 +22,9 @@ class RegisterBody extends StatelessWidget {
             24.verticalSpace,
             const RegisterHeader(),
             24.verticalSpace,
-            RegisterTextFields(),
-            32.verticalSpace,
-            CustomButton(
-              text: "Sign up",
-              height: 55.h,
-              borderRadius: BorderRadius.circular(8.r),
-            ),
+            const RegisterBlocListener(),
             24.verticalSpace,
-            AuthFooter(),
+            const AuthFooter(),
             16.verticalSpace,
             Text.rich(
               TextSpan(

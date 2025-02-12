@@ -43,7 +43,7 @@ class CustomButton extends StatelessWidget {
           boxShadow: shadow
               ? [
                   BoxShadow(
-                    color: const Color(0x4E757040), // #4E757040 (with 40 alpha)
+                    color: const Color(0x4E757040).withValues(alpha: .25), // #4E757040 (with 40 alpha)
                     offset: const Offset(0, 4), // 0px 4px
                     blurRadius: 4, // 4px
                   ),
@@ -62,7 +62,7 @@ class CustomButton extends StatelessWidget {
             child: Text(
               text,
               style:
-                  textStyle ?? AppStyles.textStyle20W500White,
+                  textStyle ?? AppStyles.textStyle20W400White,
             ),
           ),
         ),

@@ -17,7 +17,7 @@ class RegisterHeader extends StatelessWidget {
                 onTap: () {
                   GoRouter.of(context).pop();
                 },
-                child: Icon(Icons.arrow_back_ios_new)),
+                child: const Icon(Icons.arrow_back_ios_new)),
             5.horizontalSpace,
             Text(
               "Register",style: AppStyles.textStyle28W500Black,

@@ -11,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.obscureText = false,
-    this.autoValidateMode, this.iconData, this.borderSide,
+    this.autoValidateMode, this.iconData, this.borderSide, this.suffixIcon,
   });
 
   final String hintText;
@@ -21,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final AutovalidateMode? autoValidateMode;
   final IconData? iconData;
+  final IconButton? suffixIcon;
   final BorderSide? borderSide;
 
   @override
@@ -40,11 +41,12 @@ class CustomTextFormField extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
           borderSide: borderSide ?? BorderSide(
-            color: Colors.black..withAlpha(122),
+            color: Colors.black..withValues(alpha: .3),
             width: 1.5,
           ),
         ),
         prefixIcon: iconData != null ? Icon(iconData) : null,
+        suffixIcon: suffixIcon
         // errorBorder: OutlineInputBorder(
         //   borderRadius: BorderRadius.circular(10.r),
         //   borderSide: BorderSide(

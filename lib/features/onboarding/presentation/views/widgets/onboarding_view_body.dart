@@ -95,7 +95,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                             text: "LOGIN",
                             height: 48.h,
                             backgroundColor: Colors.white,
-                            textStyle: AppStyles.textStyle20W500White
+                            textStyle: AppStyles.textStyle20W400White
                                 .copyWith(color: AppColors.primaryColor),
                             shadow: true,
                             border: Border.all(
