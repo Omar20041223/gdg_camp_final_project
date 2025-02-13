@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/features/cart/presentation/manager/add_to_cart/add_to_cart_cubit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/networking/service_locator.dart';
 import 'core/utils/app_router.dart';
@@ -13,6 +14,9 @@ void main() {
       providers: [
         BlocProvider(
           create: (context) => WishlistCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CartCubit()..loadCart(),
         ), // 👈 Available app-wide
       ],
       child: const MyApp(),

@@ -30,7 +30,11 @@ abstract class AppRouter {
           path: kRegisterView,
           builder: (context, state) => const RegisterView()),
       GoRoute(path: kLoginView, builder: (context, state) => const LoginView()),
-      GoRoute(path: kHomeView, builder: (context, state) => const NavigationView()),
+      GoRoute(path: kHomeView, builder: (context, state) {
+        final extraDate = state.extra as Map<String,dynamic>;
+        final userId = extraDate['userId'] as int;
+        return NavigationView(userId: userId,);
+      }),
       GoRoute(
         path: kCategoryView,
         builder: (context, state) {

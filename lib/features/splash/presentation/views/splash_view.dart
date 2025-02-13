@@ -21,9 +21,14 @@ class _SplashViewState extends State<SplashView> {
   }
   Future<void> _checkUserLoginStatus(context) async {
     bool isLoggedIn = await isUserLoggedIn();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () async{
       if (isLoggedIn) {
-        GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        final int userId = prefs.getInt('userId') ?? 0;
+        print(userId);
+        GoRouter.of(context).pushReplacement(AppRouter.kHomeView,extra: {
+          'userId' : userId
+        });
       } else {
         GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);
       }

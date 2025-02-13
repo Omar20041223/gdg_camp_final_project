@@ -46,4 +46,5 @@ class ProductsModel {
       updatedAt: DateTime.parse(json['updated_at']),
     );
   }
+
 }

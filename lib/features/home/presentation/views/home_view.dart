@@ -8,8 +8,8 @@ import '../../../../core/networking/service_locator.dart';
 import '../manager/get_products/get_products_cubit.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, required this.userId});
+  final int userId;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
             BlocProvider(create: (context) => GetCategoriesCubit(getIt.get<HomeRepoImpl>())..getCategories()),
             BlocProvider(create: (context) => GetProductsCubit(getIt.get<HomeRepoImpl>())..getProducts()),
           ],
-          child: const HomeViewBody(),
+          child:  HomeViewBody(userId: userId,),
         ),
       ),
     );

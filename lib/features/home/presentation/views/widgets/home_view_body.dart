@@ -6,7 +6,9 @@ import 'home_view_app_bar.dart';
 import 'home_view_carousel_slider.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, required this.userId});
+
+  final int userId;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,20 @@ class HomeViewBody extends StatelessWidget {
           32.verticalSpace,
           const HomeViewCategoriesBlocBuilder(),
           32.verticalSpace,
-          const HomeViewCommonListViewBlocBuilder(title: "Offers 🔥"),
+          HomeViewCommonListViewBlocBuilder(
+            title: "Offers 🔥",
+            userId: userId,
+          ),
           32.verticalSpace,
-          const HomeViewCommonListViewBlocBuilder(title: "Recommended"),
+          HomeViewCommonListViewBlocBuilder(
+            title: "Recommended",
+            userId: userId,
+          ),
           32.verticalSpace,
-          const HomeViewCommonListViewBlocBuilder(title: "Our products"),
+          HomeViewCommonListViewBlocBuilder(
+            title: "Our products",
+            userId: userId,
+          ),
           32.verticalSpace,
         ],
       ),

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-
 import '../../features/auth/data/repos/autho_repo/auth_repo_impl.dart';
 import '../../features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'api_sevice.dart';
@@ -14,5 +13,6 @@ void setupServiceLocator() {
     apiService: getIt.get<ApiService>(),
   ));
   getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(apiService: getIt.get<ApiService>()));
+  // getIt.registerSingleton<CartRepoImpl>(CartRepoImpl(apiService: getIt.get<ApiService>()));
 
 }

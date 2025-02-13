@@ -1,17 +1,17 @@
-part of 'add_to_cart_cubit.dart';
+import '../../../data/models/add_to_cart/add_to_cart_request_model.dart';
 
-@immutable
-sealed class AddToCartState {}
+abstract class CartState {}
 
-final class AddToCartInitial extends AddToCartState {}
-final class AddToCartLoading extends AddToCartState {}
-final class AddToCartFailure extends AddToCartState {
-  final String message;
+class CartInitial extends CartState {}
 
-  AddToCartFailure({required this.message});
+class CartLoading extends CartState {}
+
+class CartFailure extends CartState {
+  final String errorMessage;
+  CartFailure(this.errorMessage);
 }
-final class AddToCartSuccess extends AddToCartState {
-  final AddToCartResponseModel addToCartResponseModel;
 
-  AddToCartSuccess({required this.addToCartResponseModel});
+class CartLoaded extends CartState {
+  final List<CartItemModel> cartItems;
+  CartLoaded(this.cartItems);
 }

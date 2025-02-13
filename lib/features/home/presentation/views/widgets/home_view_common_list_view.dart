@@ -7,10 +7,11 @@ import '../../../../../core/utils/app_styles.dart';
 import 'home_view_common_item.dart';
 
 class HomeViewCommonListView extends StatelessWidget {
-  const HomeViewCommonListView({super.key, required this.title, required this.products});
+  const HomeViewCommonListView({super.key, required this.title, required this.products, required this.userId});
 
   final String title;
   final List<ProductsModel> products;
+  final int userId;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,7 +45,7 @@ class HomeViewCommonListView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) {
-                return  HomeViewCommonItem(product: products[index],);
+                return  HomeViewCommonItem(product: products[index], userId: userId,);
               },
             ),
           ),

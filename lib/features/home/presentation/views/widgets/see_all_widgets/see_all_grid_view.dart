@@ -18,7 +18,7 @@ class SeeAllGridView extends StatelessWidget {
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
-        return HomeViewCommonItem(product: products[index],);
+        return HomeViewCommonItem(product: products[index], userId: 0,);
       },
     );
   }

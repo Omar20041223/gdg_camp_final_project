@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/core/networking/api_endpoints.dart';
+import 'package:gdg_camp_final_project/features/cart/data/models/add_to_cart/add_to_cart_request_model.dart';
 
 import 'cart_view_item_text.dart';
 
 class CartViewItem extends StatelessWidget {
-  const CartViewItem({super.key});
-
+  const CartViewItem({super.key, required this.cartItem});
+  final CartItemModel cartItem;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,13 +32,13 @@ class CartViewItem extends StatelessWidget {
             height: 134.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.r),
-              image: const DecorationImage(
-                  image: AssetImage("assets/images/offers_image.png"),
+              image:  DecorationImage(
+                  image: NetworkImage("${ApiEndpoints.urlForImages}${cartItem.productsModel.img}"),
                   fit: BoxFit.fill),
             ),
           ),
           9.horizontalSpace,
-          const CartViewItemText()
+           CartViewItemText(cartItem: cartItem,)
         ],
       ),
     );

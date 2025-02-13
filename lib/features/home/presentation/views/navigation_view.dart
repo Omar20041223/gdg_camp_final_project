@@ -6,8 +6,8 @@ import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/
 import 'package:gdg_camp_final_project/features/home/presentation/views/wishlist_view.dart';
 
 class NavigationView extends StatefulWidget {
-  const NavigationView({super.key});
-
+  const NavigationView({super.key, required this.userId});
+  final int userId;
   @override
   State<NavigationView> createState() => _NavigationViewState();
 }
@@ -20,10 +20,11 @@ class _NavigationViewState extends State<NavigationView> {
       _selectedIndex = index;
     });
   }
-  List<Widget> views = [const HomeView(),const WishlistView(),const NotificationView(),const ProfileView()];
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> views = [ HomeView(userId: widget.userId,),const WishlistView(),const NotificationView(),const ProfileView()];
+
     return Scaffold(
       body: views[_selectedIndex],
       bottomNavigationBar: CustomBottomNavBar(selectedIndex: _selectedIndex, onItemTapped: _onItemTapped),
