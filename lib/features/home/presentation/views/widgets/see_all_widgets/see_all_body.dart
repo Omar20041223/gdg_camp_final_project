@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/see_all_widgets/see_all_app_bar.dart';
-import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/see_all_widgets/see_all_grid_view.dart';
+import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/see_all_widgets/see_all_gird_view_bloc_builder.dart';
 class SeeAllBody extends StatelessWidget {
   const SeeAllBody({super.key, required this.title});
   final String title;
@@ -13,7 +13,7 @@ class SeeAllBody extends StatelessWidget {
         children: [
           SeeAllAppBar(title: title),
           16.verticalSpace,
-          const Expanded(child: SeeAllGridView())
+          const SeeAllGirdViewBlocBuilder()
         ],
       ),
     );

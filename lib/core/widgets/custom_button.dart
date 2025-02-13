@@ -34,6 +34,11 @@ class CustomButton extends StatelessWidget {
       width: width?.w,
       child: Container(
         decoration: BoxDecoration(
+          // gradient: LinearGradient(
+          //   colors: [Colors.brown.shade900, Colors.red.shade600], // Adjust colors as needed
+          //   begin: Alignment.topLeft,
+          //   end: Alignment.bottomRight,
+          // ),
           border: border ??
               Border.all(
                 width: 1,

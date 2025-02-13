@@ -4,6 +4,6 @@ class NotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("It will be done إن شاء الله"),));
+    return const Scaffold(body: Center(child: Text("It will be done إن شاء الله"),));
   }
 }

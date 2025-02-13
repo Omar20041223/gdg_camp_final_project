@@ -54,7 +54,6 @@ class SplashViewBody extends StatelessWidget {
               AppImages.logoImage,
               width: 285.w,
               height: 100.h,
-              fit: BoxFit.fill,
             ),
           ),
         ),

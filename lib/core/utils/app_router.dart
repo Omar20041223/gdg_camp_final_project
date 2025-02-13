@@ -1,7 +1,9 @@
 import 'package:gdg_camp_final_project/features/auth/presentation/views/login_view.dart';
 import 'package:gdg_camp_final_project/features/auth/presentation/views/register_view.dart';
 import 'package:gdg_camp_final_project/features/categories/presentation/views/category_view.dart';
+import 'package:gdg_camp_final_project/features/cart/presentation/views/cart_view.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/navigation_view.dart';
+import 'package:gdg_camp_final_project/features/home/presentation/views/notification_view.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/see_all_view.dart';
 import 'package:gdg_camp_final_project/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:gdg_camp_final_project/features/splash/presentation/views/splash_view.dart';
@@ -15,6 +17,8 @@ abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kCategoryView = '/categoryView';
   static const kSeeAllView = '/seeAllView';
+  static const kNotificationsView = '/notificationsView';
+  static const kCartView = '/cartView';
 
   static final router = GoRouter(
     routes: [
@@ -32,7 +36,8 @@ abstract class AppRouter {
         builder: (context, state) {
           final extraDate = state.extra as Map<String,dynamic>;
           final title =extraDate['title'] as String;
-          return CategoryView(title: title,);
+          final categoryId =extraDate['id'] as int;
+          return CategoryView(title: title, categoryId: categoryId,);
         },
       ),
       GoRoute(
@@ -43,6 +48,9 @@ abstract class AppRouter {
           return SeeAllView(title: title,);
         },
       ),
+      GoRoute(path: kNotificationsView, builder: (context, state) => const NotificationView()),
+      GoRoute(path: kCartView, builder: (context, state) => const CartView()),
+
     ],
   );
 }

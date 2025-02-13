@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gdg_camp_final_project/core/utils/app_styles.dart';
-import 'package:go_router/go_router.dart';
 
 class ProfileAppBar extends StatelessWidget {
   const ProfileAppBar({super.key});

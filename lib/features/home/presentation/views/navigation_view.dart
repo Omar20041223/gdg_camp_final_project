@@ -5,9 +5,6 @@ import 'package:gdg_camp_final_project/features/home/presentation/views/profile_
 import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/custom_bottom_nav_bar.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/wishlist_view.dart';
 
-import '../../../auth/presentation/views/login_view.dart';
-import '../../../auth/presentation/views/register_view.dart';
-import '../../../onboarding/presentation/views/onboarding_view.dart';
 class NavigationView extends StatefulWidget {
   const NavigationView({super.key});
 

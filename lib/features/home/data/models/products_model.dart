@@ -19,6 +19,21 @@ class ProductsModel {
     required this.updatedAt,
   });
 
+  /// ✅ Convert `ProductsModel` to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'price': price,
+      'category_id': categoryId,
+      'img': img,
+      'created_at': createdAt.toIso8601String(),
+      'updated_at': updatedAt.toIso8601String(),
+    };
+  }
+
+  /// ✅ Create `ProductsModel` from JSON
   factory ProductsModel.fromJson(Map<String, dynamic> json) {
     return ProductsModel(
       id: json['id'],

@@ -39,7 +39,7 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: -30.h,
+          top: -25.h,
           left: _getHomeButtonPosition(selectedIndex),
           child: CircleAvatar(
             radius: 28,
@@ -77,11 +77,11 @@ class CustomBottomNavBar extends StatelessWidget {
       case 0:
         return 20.w;
       case 1:
-        return 130.w;
+        return 120.w;
       case 2:
         return 235.w;
       case 3:
-        return 340.w;
+        return 350.w;
       default:
         return 30.w;
     }
@@ -114,8 +114,8 @@ class BottomNavClipper extends CustomClipper<Path> {
     Path path = Path();
     double height = size.height;
     double width = size.width;
-    double arcRadius = 30.0;
-    double circleRadius = 28.0;
+    double arcRadius = 40.0.r;
+    double circleRadius = 28.0.r;
     double cutoutCenterX = _getCutoutPosition(width, selectedIndex);
 
     path.lineTo(cutoutCenterX - arcRadius * 1.7, 0);
@@ -149,7 +149,13 @@ class BottomNavClipper extends CustomClipper<Path> {
 
   double _getCutoutPosition(double width, int index) {
     double sectionWidth = width / 4; // Divide equally for 4 icons
-    return (sectionWidth * index) + (sectionWidth / 2) - 3; // Adjust offset
+    if(index == 1){
+      return (sectionWidth * index) + (sectionWidth / 2) - 10;
+    }else if (index == 3){
+      return (sectionWidth * index) + (sectionWidth / 2) + 4;
+    }else{
+      return (sectionWidth * index) + (sectionWidth / 2) - 4;
+    }
   }
 
   @override

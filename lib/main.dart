@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'core/networking/service_locator.dart';
 import 'core/utils/app_router.dart';
+import 'features/home/presentation/manager/wishlist_cubit/wishlist_cubit.dart';
 
 void main() {
   setupServiceLocator();
-  runApp(const MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => WishlistCubit(),
+        ), // 👈 Available app-wide
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -26,19 +35,11 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           color: Colors.white,
           theme: ThemeData(
-            textTheme:
-            GoogleFonts.interTextTheme(Theme.of(context).textTheme),
+            textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme),
             scaffoldBackgroundColor: Colors.white,
           ),
         );
       },
     );
   }
-}
-
-
-Future<bool> isUserLoggedIn() async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  final String? token = prefs.getString('auth_token');
-  return token != null && token.isNotEmpty; // Ensuring token is not empty
 }

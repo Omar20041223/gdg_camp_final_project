@@ -48,6 +48,11 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: Colors.black.withValues(alpha: .47),
   );
+  static final TextStyle textStyle14W400Black = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
   static final TextStyle textStyle18W400Black = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w400,

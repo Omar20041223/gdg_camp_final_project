@@ -5,8 +5,8 @@ import 'package:gdg_camp_final_project/features/home/data/models/products_model.
 import '../home_view_common_item.dart';
 
 class SeeAllGridView extends StatelessWidget {
-  const SeeAllGridView({super.key});
-
+  const SeeAllGridView({super.key, required this.products});
+  final List<ProductsModel> products;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -16,9 +16,9 @@ class SeeAllGridView extends StatelessWidget {
         crossAxisSpacing: 16.w,
         mainAxisSpacing: 20.h,
       ),
-      itemCount: 20,
+      itemCount: products.length,
       itemBuilder: (context, index) {
-        return  HomeViewCommonItem(product: ProductsModel(id: 1, name: "name", description: "description", price: "price", categoryId: 1, img: "img", createdAt: DateTime(1), updatedAt: DateTime(1)),);
+        return HomeViewCommonItem(product: products[index],);
       },
     );
   }

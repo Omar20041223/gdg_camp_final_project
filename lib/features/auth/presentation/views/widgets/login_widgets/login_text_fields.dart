@@ -10,7 +10,9 @@ import '../../../../../../core/widgets/custom_button.dart';
 import '../auth_text_field.dart';
 
 class LoginTextFields extends StatefulWidget {
-  const LoginTextFields({super.key});
+  const LoginTextFields({super.key, required this.token});
+
+  final String token;
 
   @override
   State<LoginTextFields> createState() => _LoginTextFieldsState();
@@ -22,6 +24,7 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
   final formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   bool obscureText = true;
+  bool isChecked = false;
 
   @override
   void dispose() {
@@ -75,7 +78,13 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Checkbox(value: false, onChanged: (isTrue) {}),
+              Checkbox(
+                  value: isChecked,
+                  onChanged: (isTrue) {
+                    setState(() {
+                      isChecked = isTrue!;
+                    });
+                  }),
               Text(
                 "Remember this device",
                 style: AppStyles.textStyle14W400CustomBlack,
@@ -90,14 +99,16 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
           24.verticalSpace,
           CustomButton(
             text: "Login",
-            onPressed: () {
+            onPressed: () async {
               if (formKey.currentState!.validate()) {
                 context.read<LoginCubit>().login(
-                      loginRequest: LoginRequest(
-                        email: emailController.text.trim(),
-                        password: passwordController.text.trim(),
-                      ),
-                    );
+                    loginRequest: LoginRequest(
+                      email: emailController.text.trim(),
+                      password: passwordController.text.trim(),
+                    ),
+                    isChecked: isChecked);
+                print(widget.token);
+                print(isChecked);
               } else {
                 setState(() {
                   autoValidateMode = AutovalidateMode.always;

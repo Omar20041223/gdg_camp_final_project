@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_images.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class HomeViewAppBar extends StatelessWidget {
@@ -17,23 +20,41 @@ class HomeViewAppBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                AppImages.logoImage,
-                width: 84.w,
-                height: 38.5.h,
+              Column(
+                children: [
+                  Image.asset(
+                    AppImages.logoImage,
+                    width: 25.w,
+                    height: 15.h,
+                  ),
+                  Text("Fastook",style: AppStyles.textStyle12W400PrimaryColor.copyWith(
+                    color: Colors.black,
+                    fontFamily: 'DigitalNumbers', // Use the font family defined in pubspec.yaml
+                  ),),
+                ],
               ),
               Row(
                 children: [
-                  Icon(
-                    Icons.notifications_none,
-                    color: AppColors.primaryColor,
-                    size: 25.sp,
+                  InkWell(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kNotificationsView);
+                    },
+                    child: Icon(
+                      Icons.notifications_none,
+                      color: AppColors.primaryColor,
+                      size: 25.sp,
+                    ),
                   ),
                   10.horizontalSpace,
-                  Icon(
-                    Icons.shopping_cart_outlined,
-                    color: AppColors.primaryColor,
-                    size: 25.sp,
+                  InkWell(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kCartView);
+                    },
+                    child: Icon(
+                      Icons.shopping_cart_outlined,
+                      color: AppColors.primaryColor,
+                      size: 25.sp,
+                    ),
                   ),
                 ],
               )

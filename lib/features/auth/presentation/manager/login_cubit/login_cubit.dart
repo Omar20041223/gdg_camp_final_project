@@ -10,15 +10,16 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.authRepo) : super(LoginInitial());
   final AuthRepo authRepo;
 
-  Future<void> login({required LoginRequest loginRequest}) async {
+  Future<void> login({required LoginRequest loginRequest,bool isChecked = false} ) async {
     emit(LoginLoading());
     final response = await authRepo.login(loginRequest: loginRequest);
     response.fold(
       (failure) => emit(LoginFailure(errMessage: failure.message)),
       (loginResponse) async {
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        await prefs.setString('auth_token', loginResponse.token);
-
+        if(isChecked){
+          final SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setString('auth_token', loginResponse.token);
+        }
         emit(LoginSuccess(loginResponse: loginResponse));
       },
     );

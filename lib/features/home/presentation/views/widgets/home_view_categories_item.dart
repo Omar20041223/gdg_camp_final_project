@@ -14,7 +14,8 @@ class HomeViewCategoriesItem extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         GoRouter.of(context).push(AppRouter.kCategoryView,extra: {
-          "title" : category.name
+          "title" : category.name,
+          'id' : category.id,
         });
       },
       child: Container(

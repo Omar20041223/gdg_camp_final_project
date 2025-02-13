@@ -25,7 +25,7 @@ class HomeViewCommonItem extends StatelessWidget {
           ]),
       child: Column(
         children: [
-          CommonImage(image: product.img,),
+          CommonImage(image: product.img, product: product,),
           2.verticalSpace,
           Text.rich(
             TextSpan(
@@ -34,10 +34,7 @@ class HomeViewCommonItem extends StatelessWidget {
                 children: [
                   TextSpan(
                       text: "\$${product.price}",
-                      style: TextStyle(
-                          color: const Color(0xffDB4444),
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14.sp))
+                      style: AppStyles.textStyle14W700CustomRed)
                 ]),
           ),
           10.verticalSpace,
