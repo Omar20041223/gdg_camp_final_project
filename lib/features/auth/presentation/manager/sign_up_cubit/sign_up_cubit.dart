@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gdg_camp_final_project/features/auth/data/models/sign_up_model/sign_up_response.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../data/models/sign_up_model/sign_up_request.dart';
 import '../../../data/repos/autho_repo/auth_repo.dart';
 
@@ -14,7 +16,12 @@ class SignUpCubit extends Cubit<SignUpState> {
     final response = await authRepo.signUp(signUpRequest: signUpRequest);
     response.fold(
       (failure) => emit(SignUpFailure(errMessage: failure.message)),
-      (signUpResponse) => emit(SignUpSuccess()),
+      (signUpResponse) async{
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('auth_token', signUpResponse.accessToken);
+
+        emit(SignUpSuccess(signUpResponse: signUpResponse));
+      },
     );
   }
 }

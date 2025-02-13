@@ -9,11 +9,18 @@ class OnboardingItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(onboardingModel.image,width: 268.w,height: 268.h,fit: BoxFit.fill,),
-        24.verticalSpace,
-        Text(onboardingModel.mainText,style: AppStyles.textStyle20W600PrimaryColor,textAlign: TextAlign.center,),
-        24.verticalSpace,
-        Text(onboardingModel.descriptionText,style: AppStyles.textStyle16W400CustomGrey,textAlign: TextAlign.center),
+        Image.asset(onboardingModel.image,width: double.infinity,height: 428.h,fit: BoxFit.fill,),
+        40.verticalSpace,
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 40.w),
+          child: Column(
+            children: [
+              Text(onboardingModel.mainText,style: AppStyles.textStyle20W600PrimaryColor,textAlign: TextAlign.center,),
+              24.verticalSpace,
+              Text(onboardingModel.descriptionText,style: AppStyles.textStyle16W400CustomGrey,textAlign: TextAlign.center),
+            ],
+          ),
+        )
       ],
     );
   }

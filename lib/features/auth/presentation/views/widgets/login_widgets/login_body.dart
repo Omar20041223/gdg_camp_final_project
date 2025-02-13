@@ -2,9 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/utils/app_router.dart';
-import 'package:gdg_camp_final_project/core/widgets/custom_button.dart';
+import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/login_widgets/login_bloc_listener.dart';
 import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/login_widgets/login_header.dart';
-import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/login_widgets/login_text_fields.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/utils/app_styles.dart';
@@ -22,11 +21,7 @@ class LoginBody extends StatelessWidget {
             40.verticalSpace,
             const LoginHeader(),
             17.verticalSpace,
-            const LoginTextFields(),
-            24.verticalSpace,
-            CustomButton(text: "Login",onPressed: (){
-              GoRouter.of(context).push(AppRouter.kHomeView);
-            },),
+            const LoginBlocListener(),
             48.verticalSpace,
             Center(child: Text("Or Login With",style: AppStyles.textStyle14W400CustomBlack,)),
              12.5.verticalSpace,

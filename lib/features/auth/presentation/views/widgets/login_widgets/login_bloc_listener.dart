@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gdg_camp_final_project/core/helpers/extensions.dart';
-import 'package:gdg_camp_final_project/core/utils/app_router.dart';
-import 'package:gdg_camp_final_project/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
-import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/register_widgets/register_text_fields.dart';
+import 'package:gdg_camp_final_project/features/auth/presentation/manager/login_cubit/login_cubit.dart';
+import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/login_widgets/login_text_fields.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
-
-class RegisterBlocListener extends StatelessWidget {
-  const RegisterBlocListener({super.key});
+import '../../../../../../core/utils/app_router.dart';
+class LoginBlocListener extends StatelessWidget {
+  const LoginBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SignUpState>(
+    return BlocListener<LoginCubit, LoginState>(
         listener: (context, state) {
-          if (state is SignUpLoading) {
+          if (state is LoginLoading) {
             showDialog(
               context: context,
               barrierDismissible: false,
@@ -25,17 +24,17 @@ class RegisterBlocListener extends StatelessWidget {
                 ),
               ),
             );
-          } else if (state is SignUpSuccess) {
+          } else if (state is LoginSuccess) {
             context.pop();
             context.push(AppRouter.kHomeView);
             context.showSnackBar(
-               Text("Signed up Successfully,Welcome ${state.signUpResponse.user.name}"),
+               Text("Login Successfully,Welcome ${state.loginResponse.user.name}"),
             );
-          } else if (state is SignUpFailure) {
+          } else if (state is LoginFailure) {
             context.pop();
             context.showSnackBar(Text(state.errMessage,overflow: TextOverflow.ellipsis,maxLines: 1,));
           }
         },
-        child: const RegisterTextFields());
+        child: const LoginTextFields());
   }
 }

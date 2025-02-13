@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
-import 'package:gdg_camp_final_project/core/utils/app_styles.dart';
-import 'package:gdg_camp_final_project/core/widgets/commom_image.dart';
-import 'package:gdg_camp_final_project/core/widgets/move_to_cart_button.dart';
-class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+
+import '../../../../../../core/utils/app_colors.dart';
+import '../../../../../../core/utils/app_styles.dart';
+import '../../../../../../core/widgets/commom_image.dart';
+import '../../../../../../core/widgets/move_to_cart_button.dart';
+class WishlistItem extends StatelessWidget {
+  const WishlistItem({super.key, this.assetImage});
+  final ImageProvider? assetImage;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,20 +15,20 @@ class CategoryItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 12.h),
       margin: EdgeInsets.only(bottom: 40.h),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.92.r),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primaryColor.withValues(alpha: .07),
-            offset: const Offset(0, 3.37),
-            blurRadius: 12.6,
-            spreadRadius: 8.r,
-          )
-        ]
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.92.r),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.primaryColor.withValues(alpha: .07),
+              offset: const Offset(0, 3.37),
+              blurRadius: 12.6,
+              spreadRadius: 8.r,
+            )
+          ]
       ),
       child: Row(
         children: [
-          const CommonImage(image: '',),
+           CommonImage(image: '',assetImage: assetImage,),
           27.horizontalSpace,
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -43,4 +45,5 @@ class CategoryItem extends StatelessWidget {
       ),
     );
   }
+
 }

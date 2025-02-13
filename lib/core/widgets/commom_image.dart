@@ -4,9 +4,10 @@ import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
 import '../networking/api_endpoints.dart';
 
 class CommonImage extends StatefulWidget {
-  const CommonImage({super.key, required this.image});
+  const CommonImage({super.key, required this.image, this.assetImage});
 
   final String image;
+  final ImageProvider? assetImage;
 
   @override
   State<CommonImage> createState() => _CommonImageState();
@@ -24,7 +25,7 @@ class _CommonImageState extends State<CommonImage> {
         color: const Color(0xff480D0D),
         borderRadius: BorderRadius.circular(4.5.r),
         image: DecorationImage(
-            image: NetworkImage("${ApiEndpoints.urlForImages}${widget.image}"),
+            image: widget.assetImage ?? NetworkImage("${ApiEndpoints.urlForImages}${widget.image}"),
             fit: BoxFit.fill),
       ),
       child: Padding(
