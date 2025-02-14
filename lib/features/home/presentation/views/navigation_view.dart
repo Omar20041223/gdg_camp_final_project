@@ -6,8 +6,9 @@ import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/
 import 'package:gdg_camp_final_project/features/home/presentation/views/wishlist_view.dart';
 
 class NavigationView extends StatefulWidget {
-  const NavigationView({super.key, required this.userId});
+  const NavigationView({super.key, required this.userId, required this.userName});
   final int userId;
+  final String userName;
   @override
   State<NavigationView> createState() => _NavigationViewState();
 }
@@ -23,7 +24,7 @@ class _NavigationViewState extends State<NavigationView> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> views = [ HomeView(userId: widget.userId,),const WishlistView(),const NotificationView(),const ProfileView()];
+    List<Widget> views = [ HomeView(userId: widget.userId,),const WishlistView(),const NotificationView(),ProfileView(userName: widget.userName,)];
 
     return Scaffold(
       body: views[_selectedIndex],

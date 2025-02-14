@@ -28,7 +28,8 @@ class RegisterBlocListener extends StatelessWidget {
           } else if (state is SignUpSuccess) {
             context.pop();
             context.push(AppRouter.kHomeView,extra: {
-              'userId' : state.signUpResponse.user.id
+              'userId' : state.signUpResponse.user.id,
+              'userName' : state.signUpResponse.user.name
             });
             context.showSnackBar(
                Text("Signed up Successfully,Welcome ${state.signUpResponse.user.name}"),

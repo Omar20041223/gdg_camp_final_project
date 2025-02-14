@@ -25,9 +25,11 @@ class _SplashViewState extends State<SplashView> {
       if (isLoggedIn) {
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         final int userId = prefs.getInt('userId') ?? 0;
+        final String userName = prefs.getString('userName') ?? 'NotFound';
         print(userId);
         GoRouter.of(context).pushReplacement(AppRouter.kHomeView,extra: {
-          'userId' : userId
+          'userId' : userId,
+          'userName' : userName
         });
       } else {
         GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);

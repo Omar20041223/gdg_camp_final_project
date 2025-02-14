@@ -3,8 +3,8 @@ import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/profile_widgets/profile_body.dart';
 
 class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
-
+  const ProfileView({super.key, required this.userName});
+  final String userName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class ProfileView extends StatelessWidget {
           SafeArea(
             child: Container(
               color: Colors.white, // SafeArea color
-              child: const ProfileBody(),
+              child: ProfileBody(userName: userName),
             ),
           ),
         ],

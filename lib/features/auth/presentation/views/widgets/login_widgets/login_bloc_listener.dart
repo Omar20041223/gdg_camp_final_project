@@ -29,7 +29,8 @@ class LoginBlocListener extends StatelessWidget {
             context.pop();
             token = state.loginResponse.token;
             context.push(AppRouter.kHomeView,extra: {
-              'userId' : state.loginResponse.user.id
+              'userId' : state.loginResponse.user.id,
+              'userName' : state.loginResponse.user.name
             });
             context.showSnackBar(
                Text("Login Successfully,Welcome ${state.loginResponse.user.name}"),

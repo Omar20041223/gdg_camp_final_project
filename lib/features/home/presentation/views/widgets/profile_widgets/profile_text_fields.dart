@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gdg_camp_final_project/core/widgets/custom_button.dart';
 import 'package:gdg_camp_final_project/features/auth/presentation/views/widgets/auth_text_field.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../../../../core/utils/app_router.dart';
 class ProfileTextFields extends StatelessWidget {
   const ProfileTextFields({super.key});
 
@@ -22,9 +18,9 @@ class ProfileTextFields extends StatelessWidget {
         const AuthTextField(headerText: "Phone", hintText: "Phone", textInputType: TextInputType.phone, iconData: Icons.phone, controller: null),
         24.verticalSpace,
         CustomButton(text: "Save",onPressed: () async{
-          final SharedPreferences prefs = await SharedPreferences.getInstance();
-          prefs.remove('auth_token');
-          GoRouter.of(context).push(AppRouter.kLoginView);
+          // final SharedPreferences prefs = await SharedPreferences.getInstance();
+          // prefs.remove('auth_token');
+          // GoRouter.of(context).push(AppRouter.kLoginView);
         },)
       ],
     );

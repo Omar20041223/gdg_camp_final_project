@@ -119,5 +119,5 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
         ],
       ),
     );
-  }
+  } 
 }

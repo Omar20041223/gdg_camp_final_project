@@ -33,7 +33,8 @@ abstract class AppRouter {
       GoRoute(path: kHomeView, builder: (context, state) {
         final extraDate = state.extra as Map<String,dynamic>;
         final userId = extraDate['userId'] as int;
-        return NavigationView(userId: userId,);
+        final userName = extraDate['userName'] as String;
+        return NavigationView(userId: userId, userName: userName,);
       }),
       GoRoute(
         path: kCategoryView,

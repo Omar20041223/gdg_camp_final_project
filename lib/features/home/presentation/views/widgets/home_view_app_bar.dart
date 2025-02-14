@@ -78,15 +78,20 @@ class HomeViewAppBar extends StatelessWidget {
                   borderRadius: BorderRadius.circular(9.r),
                   border: Border.all(color: AppColors.primaryColor),
                 ),
-                child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Image.asset(
-                      "assets/images/filter_icon.png",
-                      width: 27.w,
-                      height: 27.h,
-                      color: AppColors.primaryColor,
+                child: InkWell(
+                  onTap: (){
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                  child: FittedBox(
                       fit: BoxFit.scaleDown,
-                    )),
+                      child: Image.asset(
+                        "assets/images/filter_icon.png",
+                        width: 27.w,
+                        height: 27.h,
+                        color: AppColors.primaryColor,
+                        fit: BoxFit.scaleDown,
+                      )),
+                ),
               )
             ],
           )

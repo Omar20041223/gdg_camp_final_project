@@ -20,6 +20,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setString('auth_token', signUpResponse.accessToken);
         await prefs.setInt('userId', signUpResponse.user.id);
+        await prefs.setString('userName', signUpResponse.user.name);
 
         emit(SignUpSuccess(signUpResponse: signUpResponse));
       },

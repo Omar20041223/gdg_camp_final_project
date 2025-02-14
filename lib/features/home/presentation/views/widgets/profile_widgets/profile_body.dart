@@ -5,8 +5,8 @@ import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/
 import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/profile_widgets/profile_image_and_name.dart';
 import 'package:gdg_camp_final_project/features/home/presentation/views/widgets/profile_widgets/profile_text_fields.dart';
 class ProfileBody extends StatelessWidget {
-  const ProfileBody({super.key});
-
+  const ProfileBody({super.key, required this.userName});
+final String userName;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -26,7 +26,7 @@ class ProfileBody extends StatelessWidget {
               children: [
                 const ProfileAppBar(),
                 20.5.verticalSpace,
-                const ProfileImageAndName(),
+                 ProfileImageAndName(userName: userName,),
                 16.verticalSpace,
                 const ProfileTextFields()
               ],
