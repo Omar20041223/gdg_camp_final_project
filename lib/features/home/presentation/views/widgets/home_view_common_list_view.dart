@@ -33,7 +33,7 @@ class HomeViewCommonListView extends StatelessWidget {
                     });
                   },
                   child: Text("See All",
-                      style: AppStyles.textStyle16W400CustomGrey)),
+                      style: AppStyles.textStyle14W700CustomRed)),
               24.horizontalSpace,
             ],
           ),

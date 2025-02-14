@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gdg_camp_final_project/core/utils/app_styles.dart';
 import '../../../../../../core/utils/app_colors.dart';
 
@@ -16,7 +17,27 @@ class ProfileImageAndName extends StatefulWidget {
 
 class _ProfileImageAndNameState extends State<ProfileImageAndName> {
   File? _imageFile;
+  final String _imageKey = "profile_image"; // Key for SharedPreferences
 
+  @override
+  void initState() {
+    super.initState();
+    _loadImage(); // Load saved image when widget is created
+  }
+
+  /// Load saved image from SharedPreferences
+  Future<void> _loadImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    String? imagePath = prefs.getString(_imageKey);
+
+    if (imagePath != null && File(imagePath).existsSync()) {
+      setState(() {
+        _imageFile = File(imagePath);
+      });
+    }
+  }
+
+  /// Pick an image from gallery and save the path
   Future<void> _pickImage() async {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
 
@@ -24,6 +45,10 @@ class _ProfileImageAndNameState extends State<ProfileImageAndName> {
       setState(() {
         _imageFile = File(pickedFile.path);
       });
+
+      // Save the selected image path
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_imageKey, pickedFile.path);
     }
   }
 

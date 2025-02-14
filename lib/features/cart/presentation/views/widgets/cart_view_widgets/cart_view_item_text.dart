@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gdg_camp_final_project/core/utils/app_colors.dart';
 import 'package:gdg_camp_final_project/core/utils/app_styles.dart';
 import 'package:gdg_camp_final_project/features/cart/data/models/add_to_cart/add_to_cart_request_model.dart';
 import 'package:gdg_camp_final_project/features/cart/presentation/manager/add_to_cart/add_to_cart_cubit.dart';
@@ -23,11 +24,12 @@ class CartViewItemText extends StatelessWidget {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
+        10.verticalSpace,
         Text(
           "\$${(double.parse(cartItem.productsModel.price.toString()) * cartItem.quantity).toStringAsFixed(2)}",
           style: AppStyles.textStyle14W700CustomRed,
         ),
-
+        10.verticalSpace,
         Row(
           children: [
             InkWell(
@@ -38,12 +40,19 @@ class CartViewItemText extends StatelessWidget {
                   context.read<CartCubit>().removeFromCart(cartItem.productId);
                 }
               },
-              child: Text(
-                "-",
-                style: AppStyles.textStyle14W400Black.copyWith(fontSize: 25.sp),
+              child: Container(
+                width: 25.w,
+                height: 25.h,
+                decoration:  BoxDecoration(
+                  color: AppColors.customGrey,
+                  borderRadius: BorderRadius.circular(4.r),
+                ),
+                child: Center(
+                  child:Icon(Icons.remove,size: 15.sp,color: AppColors.primaryColor,),
+                ),
               ),
             ),
-            5.horizontalSpace,
+            10.horizontalSpace,
             BlocBuilder<CartCubit, CartState>(
               builder: (context, state) {
                 return Text(
@@ -52,14 +61,21 @@ class CartViewItemText extends StatelessWidget {
                 );
               },
             ),
-            5.horizontalSpace,
+            10.horizontalSpace,
             InkWell(
               onTap: () {
                 context.read<CartCubit>().updateQuantity(cartItem.productId, cartItem.quantity + 1);
               },
-              child: Text(
-                "+",
-                style: AppStyles.textStyle14W400Black.copyWith(fontSize: 25.sp),
+              child: Container(
+                width: 25.w,
+                height: 25.h,
+                decoration:  BoxDecoration(
+                  color: AppColors.customGrey,
+                  borderRadius: BorderRadius.circular(4.r),
+                ),
+                child: Center(
+                  child:Icon(Icons.add,size: 15.sp,color: AppColors.primaryColor,),
+                ),
               ),
             ),
           ],

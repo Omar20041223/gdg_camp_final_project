@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="gdg_camp_final_project"
+        android:label="Fastook"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
